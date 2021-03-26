@@ -2,17 +2,23 @@ const User = require('../models/User');
 const { Op } = require('sequelize');
 module.exports = {
     async show(req, res) {
+        const { emailUser, streetUser, techsUser } = req.body;
+
         const users = await User.findAll({
             attributes: ['name', 'email'],
             where: {
                 email: {
-                    [Op.iLike]: '%outlook.com.br',
+                    [Op.iLike]: emailUser,
                 }
             },
             include: [{
                     association: 'addresses',
-                    where: { street: 'Rua José Marti' },
-                    and: { number: '66' }
+                    required: false,
+                    where: {
+                        street: {
+                            [Op.iLike]: streetUser
+                        }
+                    }
 
                 },
                 {
@@ -20,7 +26,7 @@ module.exports = {
                     required: false,
                     where: {
                         techsName: {
-                            [Op.iLike]: '%Fi%'
+                            [Op.iLike]: techsUser
                         }
                     }
                 }

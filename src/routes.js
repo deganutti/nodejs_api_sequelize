@@ -3,6 +3,7 @@ const UserController = require('./controller/UserController');
 const UserAddressesController = require('./controller/UserAddressesController');
 const TechsController = require('./controller/TechController');
 const ReportController = require('./controller/ReportController');
+const UserPasswordController = require('./controller/UserPasswordController');
 
 
 const routes = express.Router();
@@ -23,6 +24,10 @@ routes.post('/users', UserController.store);
  * Router from list users
  */
 routes.get('/users', UserController.index);
+
+routes.get('/users/:userId/password', UserPasswordController.index);
+routes.post('/users/:userId/password', UserPasswordController.store);
+
 
 routes.get('/users/:userId/addresses', UserAddressesController.index);
 routes.post('/users/:userId/addresses', UserAddressesController.store);

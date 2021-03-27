@@ -19,6 +19,10 @@ class Users extends Model {
             through: 'UserTechs',
             as: 'techs'
         });
+        this.hasMany(models.UsersPassword, {
+            foreignKey: 'userId',
+            as: 'password'
+        });
     };
 
 };

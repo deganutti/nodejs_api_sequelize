@@ -19,7 +19,6 @@ module.exports = {
                             [Op.iLike]: streetUser
                         }
                     }
-
                 },
                 {
                     association: 'techs',

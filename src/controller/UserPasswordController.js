@@ -3,7 +3,6 @@ const UsersPassword = require('../models/UsersPassword');
 const { Op } = require('sequelize');
 
 module.exports = {
-
     /**
      * List users from database
      */
@@ -14,7 +13,6 @@ module.exports = {
                 association: 'password'
             }
         });
-
         if (!user) {
             return res.status(400).json({
                 error: 'User not found!'
@@ -23,7 +21,6 @@ module.exports = {
         const usersPassword = await UsersPassword.findAll({
             where: { userId }
         });
-
         return res.json(user);
     }, //não esquecer a virgula...
     /**
@@ -36,13 +33,11 @@ module.exports = {
          * Validate exists user from API
          */
         const user = await Users.findByPk(userId);
-
         if (!user) {
             return res.status(400).json({
                 error: 'User not found!'
             });
         };
-
         const passwordExists = await UsersPassword.findAll({
             attributes: ['userId'],
             where: {
@@ -60,11 +55,5 @@ module.exports = {
                 usersPassword: 'Password is exists.'
             });
         }
-
-
-
-
-
-
     }
 };

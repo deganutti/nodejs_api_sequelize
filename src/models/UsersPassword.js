@@ -4,7 +4,7 @@ const md5 = require('md5');
 class UsersPassword extends Model {
     static init(sequelize) {
         super.init({
-            password: md5(DataTypes.STRING),
+            password: DataTypes.STRING,
         }, {
             sequelize
         });

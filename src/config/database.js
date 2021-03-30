@@ -1,9 +1,9 @@
 module.exports = {
-    dialect: 'postgres',
-    host: 'localhost',
-    user: 'postgres',
-    password: '161851',
-    database: 'mercury',
+    dialect: '',//o tipo do banco MMSQL - MYSQL - PG
+    host: '',//o endereço do servidor
+    user: '',//usuario do banco de dados
+    password: '',//a senha do banco de dados
+    database: '',//nome do banco de dados.
     define: {
         /**
          * define field created_at and updated_at

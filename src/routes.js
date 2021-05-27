@@ -11,7 +11,9 @@ const routes = express.Router();
 routes.get('/', (req, res) => {
     return res.json({
         Application: 'MTC Mercury',
-        Version: '1.0.0'
+        Version: '1.0.0',
+        Developed: 'Deganutti, Luiz Gabriel',
+        Contact: 'deganutti@oulook.com.br'
     });
 });
 

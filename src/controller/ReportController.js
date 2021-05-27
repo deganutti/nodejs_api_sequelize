@@ -31,8 +31,13 @@ module.exports = {
                 }
             ]
         });
+        if(!users){
+            return res.json(
+                'not users',
+            );
+        } else {
         return res.json(
             users
-        );
+        );}
     }
 };

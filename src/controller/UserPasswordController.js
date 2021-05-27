@@ -52,7 +52,7 @@ module.exports = {
             return res.json(passwordUser);
         } else {
             return res.json({
-                usersPassword: 'Password is exists.'
+                usersPassword: 'Password is exists. => ' +userId
             });
         }
     }
